@@ -224,7 +224,7 @@ function M:create_split_pane(direction)
   })
   local size = Config.cli.mux.split.size
   if size > 0 and size <= 1 then
-    vim.list_extend(cmd, { "--ratio", tostring(size) })
+    vim.list_extend(cmd, { "--ratio", tostring(1 - size) })
   end
   self:add_env(cmd)
   local ret = M.json(cmd, { notify = true })
